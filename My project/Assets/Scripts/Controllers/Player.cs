@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         acceleration = MaxSpeed / AccelerationTime;
+        EnemyAcceleration = EnemyMaxSpeed / EnemeyAccelerationTime;
     }
     void Update()
     {
@@ -34,7 +35,8 @@ public class Player : MonoBehaviour
         //transform.position += velocity * Time.deltaTime;
         //transform.position = new Vector3(transform.position.x + 0.01f, transform.position.y);
         //transform.position += velocity;
-        PlayerMovement();
+        //PlayerMovement();
+        EnemyMovement();
         
     }
     
@@ -89,8 +91,10 @@ public class Player : MonoBehaviour
         {
             velocity -= acceleration * transform.up * Time.deltaTime;
             transform.position += velocity.normalized * Time.deltaTime;
+
+
+            
         }
-        
         if (Input.GetKey(KeyCode.DownArrow)) 
         {
             velocity += acceleration * -transform.up * Time.deltaTime; //transform.up is negative because it is a downwards movement
@@ -100,6 +104,16 @@ public class Player : MonoBehaviour
                 velocity.y = -MaxSpeed;
             }
             transform.position += velocity.normalized * Time.deltaTime; 
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            if(velocity.magnitude > 0)
+            {
+                velocity -= acceleration * transform.up * Time.deltaTime;
+                transform.position += velocity.normalized * Time.deltaTime;
+            }
+            velocity = Vector3.zero;
+            //transform.position += velocity.normalized * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) 
@@ -125,6 +139,19 @@ public class Player : MonoBehaviour
         }
 
     }
-    
+    float EnemyAcceleration = 2f;
+    float EnemyMaxSpeed = 20f;
+    float EnemeyAccelerationTime = 2f;
+    public void EnemyMovement()
+    {
+        velocity += acceleration * transform.right * Time.deltaTime;
+        transform.position += velocity.normalized * Time.deltaTime;
+        Vector3 currenPos = Camera.main.WorldToViewportPoint(transform.position);
+        if(currenPos.x > 0)
+        {
+            Debug.Log("test");
+        }
+
+    }
 
 }
