@@ -2,17 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidRadar : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<Transform> asteroidTransforms;
+    public Transform enemyTransform;
+    public GameObject bombPrefab;
+    public Transform bombsTransform;
+    public float maxDetectionRange;
+    public float radarLength;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        DetectAsteroids(maxDetectionRange, asteroidTransforms);
     }
+
+    public void DetectAsteroids(float inMaxRange, List<Transform> inAsteroids)
+    {
+        foreach (Transform asteroid in inAsteroids)
+        {
+            float distanceToAsteroid = Vector3.Distance(asteroid.position, transform.position);
+            if (distanceToAsteroid < inMaxRange)
+            {
+                //If we are in range of the current asteroid then we are supposed to draw a line here
+                Vector3 startPoint = transform.position;
+                Vector3 endPoint = (asteroid.position - transform.position).normalized * radarLength;
+
+                Debug.DrawLine(startPoint, endPoint, Color.green);
+            }
+
+        }
+
+    }
+
+
+
+
+
 }
