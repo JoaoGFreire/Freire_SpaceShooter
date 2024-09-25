@@ -139,17 +139,24 @@ public class Player : MonoBehaviour
         }
 
     }
-    float EnemyAcceleration = 2f;
-    float EnemyMaxSpeed = 20f;
+    float EnemyAcceleration = 50f;
+    float EnemyMaxSpeed = 200f;
     float EnemeyAccelerationTime = 2f;
     public void EnemyMovement()
     {
-        velocity += acceleration * transform.right * Time.deltaTime;
+        velocity += EnemyAcceleration * transform.right * Time.deltaTime;
         transform.position += velocity.normalized * Time.deltaTime;
-        Vector3 currenPos = Camera.main.WorldToViewportPoint(transform.position);
-        if(currenPos.x > 0)
+        Vector3 currenPos = Camera.main.ScreenToWorldPoint(transform.position);
+        Camera cam = Camera.main;
+        float cameraHeight = cam.orthographicSize;
+        float cameraWidth = cam.aspect * cameraHeight;
+        if(currenPos.x < cameraWidth)
         {
             Debug.Log("test");
+        }
+        if(currenPos.x > cameraWidth)
+        {
+            Debug.Log("test2");
         }
 
     }
