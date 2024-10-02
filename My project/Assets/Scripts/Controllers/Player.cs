@@ -37,7 +37,7 @@ public class PLayer : MonoBehaviour
         //transform.position = new Vector3(transform.position.x + 0.01f, transform.position.y);
         //transform.position += velocity;
         //PlayerMovement();
-        EnemyMovement();
+        //EnemyMovement();
         EnemyRadar(radius, circlePoints);
         SpawnPowerups(radius2, numberOfPowerups);
         
@@ -191,7 +191,8 @@ public class PLayer : MonoBehaviour
         {
             float angle = (numberOfAngles * i) * Mathf.Deg2Rad; //set the value for the current angle in radians
 
-            Vector3 nextPoint = transform.position + new Vector3(Mathf.Cos(angle)*radius, Mathf.Sin(angle) * radius,0f); // set the next point to be the current position plus a new position where x is
+            Vector3 nextPoint = transform.position + new Vector3(Mathf.Cos(angle)*radius, Mathf.Sin(angle) * radius,0f); // set the next point to be the current
+                                                                                                                         // position plus a new position where x is
             //the cosine of the current angle times radius and y is the sine of the current angle times radius
             Debug.DrawLine(Point, nextPoint,circleColor); //draw the line connecting the current and next points with the color specified earilier
 

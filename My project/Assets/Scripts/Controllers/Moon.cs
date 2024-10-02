@@ -28,7 +28,8 @@ public class Moon : MonoBehaviour
         }
         float RadiansAngle = angle * Mathf.Deg2Rad; //transforms the angle to radians
         Vector3 position = new Vector3(Mathf.Cos(RadiansAngle) * radius, Mathf.Sin(RadiansAngle) * radius, 0) + target.position;
-        //position for the moon will be its current position plus a vector3 made up of the cosine of angle times the radius and the sine of the angle times the radius
+        //position for the moon will be its current position plus a vector3 made up of the cosine of angle times the radius and the sine
+        //of the angle times the radius
         transform.position = position;
         //sets the transform position to the newly calculated position.
     }
