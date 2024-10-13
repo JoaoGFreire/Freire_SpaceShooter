@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stars : MonoBehaviour
+public class Stars2 : MonoBehaviour
 {
     public List<Transform> starTransforms2;
     public float drawingTime2;
@@ -28,7 +28,7 @@ public class Stars : MonoBehaviour
         {
             currentStarIndex++;
             currentTimeDrawing = 0f;
-            if((currentStarIndex  +1 )>= starTransforms.Count)
+            if((currentStarIndex  +1 )>= starTransforms2.Count)
             {
                 currentStarIndex = 0;
             }

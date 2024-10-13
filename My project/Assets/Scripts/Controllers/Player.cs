@@ -74,7 +74,7 @@ public class PLayer : MonoBehaviour
                                             //vector3.left in this case acts the same as vector 3 with the value of (-1,0,0). Meaning that the velocity now is (-5f,0,0)
             transform.position += velocity.normalized * Time.deltaTime;
         }
-    }
+    } //velocity
 
     public void PlayerMovement()
     {
@@ -141,7 +141,7 @@ public class PLayer : MonoBehaviour
 
         }
 
-    }
+    } //acceleration (outdated)
     float EnemyAcceleration = 50f;
     float EnemyMaxSpeed = 200f;
     float EnemeyAccelerationTime = 2f;
@@ -212,6 +212,11 @@ public class PLayer : MonoBehaviour
 
             Instantiate(powerupPrefab, PowerupPosition, Quaternion.identity); //instantiates the prefab at Powerup position and at a rotation of 0.
         }
+    }
+
+    public void BetterPlayerMovement()
+    {
+
     }
 
 }

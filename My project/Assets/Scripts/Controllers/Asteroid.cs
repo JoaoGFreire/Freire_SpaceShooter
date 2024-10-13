@@ -25,7 +25,7 @@ public class Asteroid : MonoBehaviour
     public void AsteroidMovement()
     {
         
-        Debug.Log(RandomPoint);
+        //Debug.Log(RandomPoint);
         moveSpeed = moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, RandomPoint, moveSpeed);
     }
