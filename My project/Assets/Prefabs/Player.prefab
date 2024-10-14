@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4408196811525658}
   - component: {fileID: 6890330259706833056}
+  - component: {fileID: 2581178669349419438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -124,9 +125,55 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742679311805458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d47aa4a8b38e97448c22dbfdc9e14da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HomingMissilePrefab: {fileID: 0}
+  asteroidTransforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyTransform: {fileID: 0}
+  bombPrefab: {fileID: 1273894435109820, guid: b262926197932c945b68169dd6fd6c5c, type: 3}
+  bombsTransform: {fileID: 0}
+  circlePoints: 10
+  radius: 8
+  radius2: 2
+  numberOfPowerups: 20
+  powerupPrefab: {fileID: 1567431237259788, guid: 03444c0c59102ba46bb1a8b5a1b0a810, type: 3}
+--- !u!114 &2581178669349419438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742679311805458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70b6626ea82c7c47a9ce3d781c03e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  BoostPad: {fileID: 0}
+  accelerationTime: 1
+  decelerationTime: 1
+  ImprovedMaxSpeed: 2000000
+  ImprovedAccelerationTime: 0.0005
