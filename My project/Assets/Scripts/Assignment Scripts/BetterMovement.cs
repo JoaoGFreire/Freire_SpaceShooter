@@ -14,11 +14,11 @@ public class BetterMovement : MonoBehaviour
     public float decelerationTime;
     private float deceleration;
 
-    public float ImprovedMaxSpeed;
-    public float ImprovedAccelerationTime;
+    public float ImprovedMaxSpeed; //improved max speed value (set in unity)
+    public float ImprovedAccelerationTime; //improved acceleration time (set in unity)
 
-    private float ImprovedAcceleration;
-    private float defaultAcceleration;
+    private float ImprovedAcceleration;//improved acceleration value
+    private float defaultAcceleration; //default acceleration value of the player
 
 
     // Start is called before the first frame update
@@ -26,8 +26,10 @@ public class BetterMovement : MonoBehaviour
     {
         acceleration = maxSpeed / accelerationTime;
         deceleration = maxSpeed / decelerationTime;
-        ImprovedAcceleration = ImprovedMaxSpeed / ImprovedAccelerationTime;
-        defaultAcceleration = acceleration;
+        ImprovedAcceleration = ImprovedMaxSpeed / ImprovedAccelerationTime; //calculates improved acceleration
+        defaultAcceleration = acceleration; // makes the default acceleration the original acceleration value of max speed
+                                            // divided by acceleration time
+
     }
 
     // Update is called once per frame
@@ -82,14 +84,18 @@ public class BetterMovement : MonoBehaviour
         transform.position += currentVelocity * Time.deltaTime;
     }
 
+    //changes acceleration to improved acceleration
+    //which is equal to the improved max speed divided improved acceleration time
+    //both values are determined in engine
+
     public void IncreaseSpeed()
     {
         acceleration = ImprovedAcceleration;
     }
-    public void DecreaseSpeed()
+    public void DecreaseSpeed() // changes acceleration back to its original value.
     {
-        Debug.Log("test");
-        Debug.Log(acceleration.ToString());
+        //Debug.Log("test");
+        //Debug.Log(acceleration.ToString());
         acceleration = defaultAcceleration;
     }
 }
